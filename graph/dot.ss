@@ -31,7 +31,10 @@
          (set! ->s (cons `(-> ,(string->symbol src) ,(string->symbol dst)) ->s)))
        (node-next n)))
     G)
-   `(top-level-program
+   `(library (G)
+      (export ,(string->symbol (node-name G)))
+      (import (chezscheme)
+              (graph))
      (import (chezscheme)
              (graph))
      ,@nodes

@@ -22,4 +22,7 @@
                (let ([n1 (vector-ref node-set (random node-count))]
                      [n2 (vector-ref node-set (random node-count))])
                  (-> n1 n2)
-                 (loop (add1 i)))]))])))
+                 (loop (add1 i)))]))
+
+      ;; Return the newly created graph
+      node-set])))
