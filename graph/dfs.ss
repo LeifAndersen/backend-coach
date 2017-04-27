@@ -13,13 +13,14 @@
          [else
           (if proc (proc g))
           (let loop ([next (node-next g)]
-                     [seen seen])
+                     [seen (cons g seen)])
             (cond
               [(null? next) (values #f seen)]
               [else (let-values ([(p s) (wlk (car next)
                                              end
                                              (cons (node-name g) path)
-                                             (cons g seen) proc)])
+                                             seen
+                                             proc)])
                       (if p
                           (values p s)
                           (loop (cdr next) s)))]))]))
