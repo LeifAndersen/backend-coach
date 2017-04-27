@@ -1,4 +1,4 @@
-(library (G) (export n0) (import (chezscheme) (graph))
+(library (G) (export n0 n1) (import (chezscheme) (graph))
  (def-node n58) (def-node n44) (def-node n67) (def-node n3)
  (def-node n35) (def-node n15) (def-node n51) (def-node n55)
  (def-node n90) (def-node n64) (def-node n92) (def-node n53)
