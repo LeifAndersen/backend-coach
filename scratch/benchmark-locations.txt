@@ -1,0 +1,4 @@
+https://github.com/larcenists/larceny/tree/master/test/R6RS
+https://github.com/nuprl/gradual-typing-performance/tree/master/benchmarks
+http://dynamo.iro.umontreal.ca/wiki/index.php/Benchmarks
+
