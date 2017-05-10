@@ -61,6 +61,6 @@
          (name "bibfreq2"))
     (run-r6rs-benchmark
      (string-append name ":" s2)
-     1
+     100
      (lambda () (go (hide count input1)))
      (lambda (result) (equal? result output)))))
