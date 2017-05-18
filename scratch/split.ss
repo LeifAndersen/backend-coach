@@ -1,6 +1,9 @@
 #!r6rs
 
-(import (rnrs base))
+;; Timing example taken from:
+;; An Efficient Implementation of Multiple Return Values
+
+(import (rnrs))
 
 (define (split-vals ls)
   (if (or (null? ls) (null? (cdr ls)))
@@ -41,4 +44,20 @@
              [count (- the-list-size 1)])
     (if (< count 0)
         lst
-        (loop lst (cons count lst) (- count 1)))))
+        (loop (cons count lst) (- count 1)))))
+
+(define (print-split func)
+  (let-values ([(o e) (func the-list)])
+    (display o)
+    (newline)
+    (display e)
+    (newline)))
+
+(let-values ([(o1 e1) (split-vals the-list)]
+             [(o2 e2) (split-set/rev the-list)]
+             [(o3 e3) (split-set the-list)])
+  (if (not (and (equal? o1 o2)
+                (equal? o1 o3)
+                (equal? e1 e2)
+                (equal? e1 e3)))
+      (error "Bad Implementation")))
