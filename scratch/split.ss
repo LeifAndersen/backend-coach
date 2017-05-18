@@ -38,7 +38,7 @@
            (set! e (cons (cadr ls) e))]))
   (values o e))
 
-(define the-list-size 1000)
+(define the-list-size 10000)
 (define the-list
   (let loop ([lst '()]
              [count (- the-list-size 1)])
@@ -61,3 +61,17 @@
                 (equal? e1 e2)
                 (equal? e1 e3)))
       (error "Bad Implementation")))
+
+(define run-count 10000)
+(define (time-split func)
+  (time (let loop ([count 0])
+          (func the-list)
+          (if (< count run-count)
+              (loop (+ count 1))))))
+
+(display "Splitting w/ Values: ")
+(time-split split-vals)
+(display "Splitting w/ set!: ")
+(time-split split-set)
+(display "Splitting w/ set! and reverse: ")
+(time-split split-set/rev)
